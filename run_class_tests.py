@@ -8,7 +8,7 @@ console = Console()
 
 all_objs = dir(MyTestSample)
 method_names = [(str(obj)) for obj in all_objs if obj.startswith("my_test_")]
-console.print(method_names)
+# console.print(method_names)
 # # Dictionary to store function names as keys and functions as values
 
 test_class_dict = {}
@@ -22,13 +22,10 @@ for method_name in method_names:
 console.print("test class dict", test_class_dict)
 # # Now you can access and call the functions using the dictionary
 
+t = MyTestSample()
 for test_class_name, method in test_class_dict.items():
-    print(f"\nCalling function: {test_class_name}")
-    # print(method)
-    t = MyTestSample()
-    t.my_test_50()
-    t.my_test_51()
-    t.my_test_52()
+    print(f"Calling function: {test_class_name}")
+    method(t)
 
 
 console.print("[dark_orange]Test results[/]")
