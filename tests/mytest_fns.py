@@ -1,8 +1,8 @@
 import sys
 
 
-from fns import add, mul, sub, div
-from utils import color_result, store_result
+from src.app import add, mul, sub, div
+from _mypytest.utils import color_result, store_result
 from rich.console import Console
 
 from results import Results

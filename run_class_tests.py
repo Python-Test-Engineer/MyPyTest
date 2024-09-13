@@ -1,4 +1,4 @@
-from mytest_class import MyTestSample
+from tests.mytest_class import MyTestSample
 from rich.console import Console
 from results import Results
 

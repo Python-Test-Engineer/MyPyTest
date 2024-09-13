@@ -1,8 +1,8 @@
 import sys
 
 
-from fns import add, mul, sub, div
-from utils import color_result, store_result
+from src.app import add
+from _mypytest.utils import color_result, store_result
 from rich.console import Console
 
 from results import Results
@@ -50,8 +50,3 @@ class MyTestSample:
         print(f"Actual result: {actual_result} - Expected result: {expected_result}")
         color_result(actual_result, expected_result)
         store_result(sys._getframe().f_code.co_name, actual_result, expected_result)
-
-
-if __name__ == "__main__":
-    t = MyTestSample()
-    t.my_test_50()

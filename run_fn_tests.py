@@ -1,4 +1,4 @@
-import mytest_fns as module_name
+import tests.mytest_fns as module_name
 from rich.console import Console
 from results import Results
 
