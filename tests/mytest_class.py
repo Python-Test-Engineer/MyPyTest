@@ -1,10 +1,5 @@
-import sys
-
-
 from src.app import add
-from _mypytest.utils import color_result, store_result
 from rich.console import Console
-
 from results import Results
 
 r = Results.get_instance()
@@ -37,7 +32,7 @@ class MyTestSample:
             actual_result == expected_result
         ), f"Actual result: {actual_result} - Expected result: {expected_result}"
 
-    def my_test_203_cls_FAIL():
+    def my_test_203_cls_add_FAIL():
         actual_result = add(22, 2) + 10
         expected_result = 24
         assert (
