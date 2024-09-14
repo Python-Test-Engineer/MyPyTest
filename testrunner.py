@@ -1,4 +1,6 @@
 from tests.mytest_class import MyTestSample
+
+# import tests.mytest_class as MyTestSample
 import tests.mytest_fns as module_name
 from rich.console import Console
 from _mypytest.results import Results
@@ -6,7 +8,7 @@ from _mypytest.utils import display_test_result
 
 r = Results.get_instance()
 console = Console()
-
+console.print(globals())
 all_objs = dir(MyTestSample)
 method_names = [(str(obj)) for obj in all_objs if obj.startswith("my_test_")]
 # console.print(method_names)
