@@ -29,3 +29,33 @@ def store_result(test_name, actual_result, expected_result, test_message=None):
             {"test_name": test_name, "test_result": "FAILED", "test_message": str(e)}
         )
         print(e)
+
+
+def store_test(func):
+
+    @functools.wraps(func)
+    def wrapper_store(*args, **kwargs):
+        try:
+            console.print("[cyan]In try and running test...[/]")
+            func(*args, **kwargs)
+            r.add_result(
+                {
+                    "test_name": func.__name__,
+                    "test_result": "PASSED",
+                    "test_message": None,
+                }
+            )
+        except Exception as e:
+            r.add_result(
+                {
+                    "test_name": func.__name__,
+                    "test_result": "FAILED",
+                    "test_message": str(e),
+                }
+            )
+            print(e)
+        finally:
+            console.print("[cyan]In finally...[/]")
+            console.print(r.get_results())
+
+    return wrapper_store
