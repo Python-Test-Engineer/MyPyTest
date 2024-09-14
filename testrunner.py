@@ -1,7 +1,5 @@
-from tests.mytest_class import MyTestSample
-
-# import tests.mytest_class as MyTestSample
-import tests.mytest_fns as module_name
+from tests.mytest_class import MyTestSample  # is src.add imported?
+import tests.mytest_fns as module_name  # src.add imported
 from rich.console import Console
 from _mypytest.results import Results
 from _mypytest.utils import display_test_result
