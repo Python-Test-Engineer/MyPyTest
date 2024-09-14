@@ -1,5 +1,21 @@
+import functools
 from rich.console import Console
 from results import Results
+
+
+def display_test_result(result={}, result_type="PASSED"):
+
+    if result_type == "PASSED":
+        console.print(f"[green]{result}[/]")
+        console.print(f"[green bold]{result_type} ✅[/]")
+        console.print("[cyan]END TEST[/cyan]")
+        print("")
+    if result_type == "FAILED":
+        console.print(f"[red]{result}[/]")
+        console.print(f"[red bold]{result_type} ❌[/]")
+        console.print("[cyan]END TEST[/cyan]")
+        print("")
+
 
 r = Results.get_instance()
 console = Console()
@@ -29,6 +45,7 @@ def store_result(test_name, actual_result, expected_result, test_message=None):
             {"test_name": test_name, "test_result": "FAILED", "test_message": str(e)}
         )
         print(e)
+        print("")
 
 
 def store_test(func):

@@ -2,11 +2,7 @@ from tests.mytest_class import MyTestSample
 import tests.mytest_fns as module_name
 from rich.console import Console
 from _mypytest.results import Results
-
-
-def display_test_result(result_type="PASSED"):
-    pass
-
+from _mypytest.utils import display_test_result
 
 r = Results.get_instance()
 console = Console()
@@ -35,9 +31,8 @@ for test_class_name, class_method in test_class_dict.items():
             "test_result": "PASSED",
             "test_message": None,
         }
-        console.print(f"[green]{result}[/]")
-        console.print("[green bold]PASSED ✅[/]")
-        console.print("[cyan]END TEST[/cyan]")
+        display_test_result(result, "PASSED")
+
         r.add_result(result)
     except Exception as e:
         result = {
@@ -45,9 +40,7 @@ for test_class_name, class_method in test_class_dict.items():
             "test_result": "FAILED",
             "test_message": str(e),
         }
-        console.print(f"[red]{result}[/]")
-        console.print("[red bold]FAILED ❌[/]")
-        console.print("[cyan]END TEST[/cyan]")
+        display_test_result(result, "FAILED")
         r.add_result(result)
         print(e)
     finally:
@@ -77,9 +70,7 @@ for test_name, func in test_dict.items():
             "test_result": "PASSED",
             "test_message": None,
         }
-        console.print("[green bold]PASSED ✅[/]")
-        console.print(f"[green]{result}[/]")
-        console.print("[cyan]END TEST[/cyan]")
+        display_test_result(result, "PASSED")
         r.add_result(result)
     except Exception as e:
         result = {
@@ -87,9 +78,7 @@ for test_name, func in test_dict.items():
             "test_result": "FAILED",
             "test_message": str(e),
         }
-        console.print("[red bold]FAILED ❌[/]")
-        console.print(f"[red]{result}[/]")
-        console.print("[cyan]END TEST[/cyan]")
+        display_test_result(result, "FAILED")
         r.add_result(result)
 
         print(e)

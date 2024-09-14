@@ -18,6 +18,13 @@ class MyTestSample:
             f"\n[dark_orange italic]Running teardown for {method.__name__}[/]"
         )
 
+    def my_test_200_cls_add_FAIL():
+        actual_result = add(15, 20) + 20
+        expected_result = 35
+        assert (
+            actual_result == expected_result
+        ), f"Actual result: {actual_result} - Expected result: {expected_result}"
+
     def my_test_201_cls_add():
         actual_result = add(15, 20)
         expected_result = 35
