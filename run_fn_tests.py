@@ -24,7 +24,29 @@ console.print("test dict", test_dict)
 # # Now you can access and call the functions using the dictionary
 for test_name, func in test_dict.items():
     print(f"\nCalling function: {test_name}")
-    func()
+    try:
+        console.print("[cyan]In try and running test...[/]")
+        func()
+        r.add_result(
+            {
+                "test_name": func.__name__,
+                "test_result": "PASSED",
+                "test_message": None,
+            }
+        )
+    except Exception as e:
+        r.add_result(
+            {
+                "test_name": func.__name__,
+                "test_result": "FAILED",
+                "test_message": str(e),
+            }
+        )
+        print(e)
+    finally:
+        console.print("[cyan]In finally...[/]")
+        console.print(r.get_results())
+    # func()
 
 
 console.print("[dark_orange]Test results[/]")
