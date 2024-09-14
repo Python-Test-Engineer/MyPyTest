@@ -1,6 +1,6 @@
 import functools
 import time
-
+import sys
 from rich.console import Console
 from results import Results
 
@@ -17,9 +17,10 @@ def store_test(func):
         try:
             console.print("[cyan]In try and running test...[/]")
             func(*args, **kwargs)
+            print(func)
             r.add_result(
                 {
-                    "test_name": "my_test_10_add",
+                    "test_name": func.__name__,
                     "test_result": "PASSED",
                     "test_message": None,
                 }
