@@ -1,6 +1,6 @@
 import tests.mytest_fns as module_name
 from rich.console import Console
-from results import Results
+from _mypytest.Result import Results
 
 r = Results.get_instance()
 console = Console()
@@ -23,34 +23,32 @@ console.print("test dict", test_dict)
 
 # # Now you can access and call the functions using the dictionary
 for test_name, func in test_dict.items():
-    print(f"\nCalling function: {test_name}")
+    console.print(f"\n[cyan]Test: {test_name}[/cyan]")
     try:
-        console.print("[cyan]In try and running test...[/]")
         func()
-        r.add_result(
-            {
-                "test_name": func.__name__,
-                "test_result": "PASSED",
-                "test_message": None,
-            }
-        )
+        result = {
+            "test_name": func.__name__,
+            "test_result": "PASSED",
+            "test_message": None,
+        }
+        console.print("[green bold]PASSED ✅[/]")
+        console.print(f"[green]{result}[/]")
+        r.add_result(result)
     except Exception as e:
-        r.add_result(
-            {
-                "test_name": func.__name__,
-                "test_result": "FAILED",
-                "test_message": str(e),
-            }
-        )
+        result = {
+            "test_name": func.__name__,
+            "test_result": "FAILED",
+            "test_message": str(e),
+        }
+        console.print("[red bold]FAILED ❌[/]")
+        console.print(f"[red]{result}[/]")
+        r.add_result(result)
+
         print(e)
     finally:
-        console.print("[cyan]In finally...[/]")
-        console.print(r.get_results())
-    # func()
+        pass
 
 
-console.print("[dark_orange]Test results[/]")
-console.print(r.get_results())
 console.print("[green]================ Test Summary ===================[/]")
 r.get_result_totals()
 console.print("[green]=================================================[/]")
