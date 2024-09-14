@@ -1,13 +1,13 @@
 import tests.mytest_fns as module_name
 from rich.console import Console
-from _mypytest.Result import Results
+from _mypytest.results import Results
 
 r = Results.get_instance()
 console = Console()
 
 all_funcs = dir(module_name)
 function_names = [func for func in all_funcs if func.startswith("my_test_")]
-console.print(function_names)
+# console.print(function_names)
 
 
 # # Dictionary to store function names as keys and functions as values
@@ -19,7 +19,7 @@ for func_name in function_names:
     test_dict[func_name] = module_name.__dict__[func_name]
 
 
-console.print("test dict", test_dict)
+# console.print("test dict", test_dict)
 
 # # Now you can access and call the functions using the dictionary
 for test_name, func in test_dict.items():
