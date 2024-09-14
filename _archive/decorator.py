@@ -1,6 +1,4 @@
 import functools
-import time
-import sys
 from rich.console import Console
 from results import Results
 
