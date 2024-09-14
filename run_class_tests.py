@@ -22,10 +22,10 @@ for method_name in method_names:
 console.print("test class dict", test_class_dict)
 # # Now you can access and call the functions using the dictionary
 
-t = MyTestSample()
-for test_class_name, method in test_class_dict.items():
+self = MyTestSample()
+for test_class_name, class_method in test_class_dict.items():
     print(f"Calling function: {test_class_name}")
-    method(t)
+    class_method(self)
 
 
 console.print("[dark_orange]Test results[/]")
