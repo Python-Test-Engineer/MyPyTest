@@ -17,7 +17,6 @@ def store_test(func):
         try:
             console.print("[cyan]In try and running test...[/]")
             func(*args, **kwargs)
-            print(func)
             r.add_result(
                 {
                     "test_name": func.__name__,
@@ -28,7 +27,7 @@ def store_test(func):
         except Exception as e:
             r.add_result(
                 {
-                    "test_name": "my_test_10_add",
+                    "test_name": func.__name__,
                     "test_result": "FAILED",
                     "test_message": str(e),
                 }
@@ -45,14 +44,36 @@ def store_test(func):
 def my_test_10_add():
     actual_result = add(5, 2)
     expected_result = 7
-    console.print(
-        f"[dark_orange]Actual result: {actual_result} - Expected result: {expected_result}[/]"
-    )
+    assert (
+        actual_result == expected_result
+    ), f"Actual result: {actual_result} - Expected result: {expected_result}"
+
+
+@store_test
+def my_test_20_add():
+    actual_result = add(4, 2)
+    expected_result = 6
+
+    assert (
+        actual_result == expected_result
+    ), f"Actual result: {actual_result} - Expected result: {expected_result}"
+
+
+@store_test
+def my_test_30_FAIL():
+    actual_result = add(4, 2) + 1
+    expected_result = 6
+
+    assert (
+        actual_result == expected_result
+    ), f"Actual result: {actual_result} - Expected result: {expected_result}"
 
 
 if __name__ == "__main__":
 
     my_test_10_add()
+    my_test_20_add()
+    my_test_30_FAIL()
     console.print("[green]================ Test Summary ===================[/]")
     r.get_result_totals()
     console.print("[green]=================================================[/]")
