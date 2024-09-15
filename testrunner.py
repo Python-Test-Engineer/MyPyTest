@@ -3,10 +3,23 @@ import tests.mytest_fns as module_name  # src.add imported
 from rich.console import Console
 from _mypytest.results import Results
 from _mypytest.utils import display_test_result
+from utils.read_mypytest import get_mytest_dir, get_mytest_files, get_version
+
 
 r = Results.get_instance()
 console = Console()
-console.print(globals())
+# get location of tests
+test_dir = get_mytest_dir()
+test_files = get_mytest_files()
+test_version = get_version()
+console.print("[dark_orange]================ HEADER ===================[/]")
+console.print(f"[cyan]Test dirctory: [green bold]{test_dir}[/][/cyan]")
+console.print(f"[cyan]Test files: [green bold]{test_files}[/][/cyan]")
+console.print(f"[cyan]Test version: [green bold]{test_version}[/][/cyan]")
+console.print("[dark_orange]================ HEADER ===================[/]")
+
+console.print("[dark_orange]================ RUN CLASS TESTS ===================[/]")
+# console.print(globals())
 all_objs = dir(MyTestSample)
 method_names = [(str(obj)) for obj in all_objs if obj.startswith("my_test_")]
 # console.print(method_names)
@@ -46,7 +59,7 @@ for test_class_name, class_method in test_class_dict.items():
     finally:
         pass
 
-
+console.print("[dark_orange]================ RUN FN TESTS ===================[/]")
 all_funcs = dir(module_name)
 function_names = [func for func in all_funcs if func.startswith("my_test_")]
 # console.print(function_names)

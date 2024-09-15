@@ -17,6 +17,11 @@ def get_mytest_dir():
     return config["tests"]["dir"]
 
 
+def get_mytest_files():
+    """GET"""
+    return config["tests"]["files"]
+
+
 def get_version():
     return config["framework"]["version"]
 

@@ -1,7 +1,6 @@
 import functools
 from rich.console import Console
 from results import Results
-from utils.read_mypytest import get_mytest_dir
 
 
 def get_test_files():
