@@ -1,6 +1,12 @@
 import functools
 from rich.console import Console
 from results import Results
+from utils.read_mypytest import get_mytest_dir
+
+
+def get_test_files():
+    test_dir = get_mytest_dir()
+    console.print(f"Test dirctory: {test_dir}")
 
 
 def display_test_result(result={}, result_type="PASSED"):
