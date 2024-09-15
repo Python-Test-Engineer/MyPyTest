@@ -16,7 +16,7 @@ console.print("[dark_orange]================ HEADER ===================[/]")
 console.print(f"[cyan]Test dirctory: [green bold]{test_dir}[/][/cyan]")
 console.print(f"[cyan]Test files: [green bold]{test_files}[/][/cyan]")
 console.print(f"[cyan]Test version: [green bold]{test_version}[/][/cyan]")
-console.print("[dark_orange]================ HEADER ===================[/]")
+console.print("")
 
 console.print("[dark_orange]================ RUN CLASS TESTS ===================[/]")
 # console.print(globals())
@@ -59,7 +59,7 @@ for test_class_name, class_method in test_class_dict.items():
     finally:
         pass
 
-console.print("[dark_orange]================ RUN FN TESTS ===================[/]")
+console.print("\n[dark_orange]================ RUN FN TESTS ===================[/]")
 all_funcs = dir(module_name)
 function_names = [func for func in all_funcs if func.startswith("my_test_")]
 # console.print(function_names)
@@ -94,7 +94,7 @@ for test_name, func in test_dict.items():
         display_test_result(result, "FAILED")
         r.add_result(result)
 
-        print(e)
+        # print(e)
     finally:
         pass
 
