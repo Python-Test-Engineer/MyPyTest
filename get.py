@@ -42,10 +42,35 @@ def get_all_class_methods(module_path):
     return class_methods
 
 
+def get_all_classes(module_path):
+
+    module_name = module_path.replace("/", ".").replace(".py", "")
+    # console.print(f"[dark_orange]Module: {module_name}[/]")
+    mymodule = importlib.import_module(module_name)
+
+    all_classes = []
+    # get all class names
+    for name in dir(mymodule):
+        obj = getattr(mymodule, name)
+        if inspect.isclass(obj):
+            # print(name)
+            all_classes.append(name)
+    # Get the class from the module
+    # class_name = "MyTestSample"  # Replace with the actual class name
+    all_classes = [class_ for class_ in all_classes if class_.startswith("MyTest")]
+    # console.print(f"Test Classes: {all_classes}")
+
+    return all_classes
+
+
 if __name__ == "__main__":
-    module_name = "tests/mytest_class.py"
+    module_name = "tests/mytest_class_01.py"
     test_methods = get_all_class_methods(module_name)
+    classes = get_all_classes(module_name)
+    console.print(f"[green]Classes:[/]")
+    for cls in classes:
+        console.print(f"[cyan]{cls}[/]")
     console.print(f"[dark_orange]Number of test methods: {len(test_methods)}[/]")
     console.print(f"[green]Test Methods:[/]")
     for method in test_methods:
-        console.print(f"\t[green]{method}[/]")
+        console.print(f"\t[dark_orange]{method}[/]")

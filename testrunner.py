@@ -6,7 +6,7 @@ from rich.console import Console
 from _mypytest.results import Results
 from _mypytest.utils import display_test_result
 from utils.read_mypytest import get_mytest_dir, get_mytest_files, get_version
-
+from get import get_all_class_methods, get_all_classes
 
 r = Results.get_instance()
 console = Console()
@@ -26,7 +26,11 @@ all_objs = dir(MyTestSample)
 method_names = [(str(obj)) for obj in all_objs if obj.startswith("my_test_")]
 # console.print(method_names)
 # # Dictionary to store function names as keys and functions as values
-
+method_names = get_all_class_methods("tests/mytest_class.py")
+classes = get_all_classes("tests/mytest_class.py")
+console.print(f"[green]Classes:[/]")
+for cls in classes:
+    console.print(f"[cyan]{cls}[/]")
 test_class_dict = {}
 
 # # Populate the dictionary
