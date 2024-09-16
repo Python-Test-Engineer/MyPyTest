@@ -1,6 +1,6 @@
 import functools
 from rich.console import Console
-from results import Results
+from _mypytest.results import Results
 
 
 def display_test_result(result={}, result_type="PASSED"):
