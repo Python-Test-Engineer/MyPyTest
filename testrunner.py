@@ -28,7 +28,7 @@ method_names = [(str(obj)) for obj in all_objs if obj.startswith("my_test_")]
 # # Dictionary to store function names as keys and functions as values
 method_names = get_all_class_methods("tests/mytest_class.py")
 classes = get_all_classes("tests/mytest_class.py")
-console.print(f"[green]Classes:[/]")
+console.print("[green]Classes:[/]")
 for cls in classes:
     console.print(f"[cyan]{cls}[/]")
 test_class_dict = {}
