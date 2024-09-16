@@ -5,10 +5,8 @@ import sys
 from rich.console import Console
 
 console = Console()
-# let's "import" module1 manually
 
-# first we need to load the code from file
-module_name = "module1"
+module_name = "module1_source.py"
 module_file = "module1_source.py"
 module_path = "."
 
@@ -38,8 +36,8 @@ exec(code, module_name.__dict__)
 # our module is now imported!
 # We can use it directly via our mod variable
 
-module_name.hello()
-console.print(module_name.__dict__)
+
+# console.print(module_name.__dict__)
 all_funcs = dir(module_name)
 function_names = [func for func in all_funcs if func.startswith("my_test_")]
 # console.print(function_names)
@@ -64,13 +62,15 @@ for test_name, func in test_dict.items():
             "test_message": None,
         }
 
+        console.print(result)
     except Exception as e:
         result = {
             "test_name": func.__name__,
             "test_result": "FAILED",
             "test_message": str(e),
         }
-
+        console.print(result)
         # print(e)
     finally:
         pass
+
