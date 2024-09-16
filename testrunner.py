@@ -8,9 +8,6 @@ from _mypytest.utils import display_test_result
 from utils.read_mypytest import get_mytest_dir, get_mytest_files, get_version
 
 
-cls_file = "tests.mytest_class"
-mod = "tests.mytest_class"
-MyTestSample = importlib.import_module(mod)
 r = Results.get_instance()
 console = Console()
 # get location of tests
