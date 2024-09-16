@@ -45,4 +45,7 @@ def get_all_class_methods(module_path):
 if __name__ == "__main__":
     module_name = "tests/mytest_class.py"
     test_methods = get_all_class_methods(module_name)
-    console.print(f"Test Methods: {test_methods}")
+    console.print(f"[dark_orange]Number of test methods: {len(test_methods)}[/]")
+    console.print(f"[green]Test Methods:[/]")
+    for method in test_methods:
+        console.print(f"\t[green]{method}[/]")
