@@ -8,6 +8,8 @@ console = Console()
 
 # dynamically import the module
 
+test_class_dict = {}
+
 
 def get_all_class_methods(module_path):
 
@@ -36,8 +38,10 @@ def get_all_class_methods(module_path):
             for name in dir(class_)
             if callable(getattr(class_, name)) and name.startswith("my_test_")
         ]
+        for method_name in class_methods:
+            test_class_dict[method_name] = class_.__dict__[method_name]
 
-        # console.print(f"class methods {class_methods}")
+    console.print("test class dict", test_class_dict)
 
     return class_methods
 
@@ -64,7 +68,7 @@ def get_all_classes(module_path):
 
 
 if __name__ == "__main__":
-    module_name = "tests/mytest_class_01.py"
+    module_name = "tests/mytest_class.py"
     test_methods = get_all_class_methods(module_name)
     classes = get_all_classes(module_name)
     console.print(f"[green]Classes:[/]")
