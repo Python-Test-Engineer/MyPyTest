@@ -1,22 +1,15 @@
 from src.app import add
-from rich.console import Console
-from results import Results
-
-r = Results.get_instance()
-console = Console()
 
 
 class MyTestSample:
     # we can define setup and teardown methods as well
 
     def setup_method(self, method):
-        console.print(f"\n[dark_orange italic]Running setup for {method.__name__}[/]")
+        print(f"\n[dark_orange italic]Running setup for {method.__name__}[/]")
 
     def teardown_method(self, method):
 
-        console.print(
-            f"\n[dark_orange italic]Running teardown for {method.__name__}[/]"
-        )
+        print(f"\n[dark_orange italic]Running teardown for {method.__name__}[/]")
 
     def my_test_2222_cls_add_FAIL():
         actual_result = add(15, 20) + 20
