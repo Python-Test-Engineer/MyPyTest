@@ -35,10 +35,10 @@ for cls in classes:
         try:
             # Create an instance of the class
             instance = cls()
-            # Get the method without the instance
-            method = getattr(cls, method_name)
+            # Get the method as func without the instance
+            func = getattr(cls, method_name)
             # Call the method without the instance
-            method.__get__(None, cls)()
+            func.__get__(None, cls)()
             result = {
                 "test_name": method_name,
                 "test_result": "PASSED",
