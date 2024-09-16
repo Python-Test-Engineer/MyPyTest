@@ -104,12 +104,6 @@ for test_name, func in test_dict.items():
 console.print("[green]================ Test Summary ===================[/]")
 r.get_result_totals()
 console.print("[green]=================================================[/]")
-from tests.mytest_class import MyTestSample  # is src.add imported?
-import tests.mytest_fns as module_name  # src.add imported
-from rich.console import Console
-from _mypytest.results import Results
-from _mypytest.utils import display_test_result
-from utils.read_mypytest import get_mytest_dir, get_mytest_files, get_version
 
 
 r = Results.get_instance()
