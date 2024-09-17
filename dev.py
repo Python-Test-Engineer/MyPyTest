@@ -1,3 +1,4 @@
+import glob
 import importlib
 import inspect
 from rich.console import Console
@@ -18,3 +19,14 @@ do_header()
 console.print(
     f"{test_version} - {test_dir} - {test_files}   - {test_classes} - {test_funcs}"
 )
+
+
+pattern = f"{test_dir}/**/{test_files}"
+# print(pattern)
+all_files = glob.glob(pattern, recursive=True)
+all_files = [f.replace("\\", ".").replace(".py", "") for f in all_files]
+# filename = "tests\\mytest.py"
+# module_name = filename.replace("\\", ".").replace(".py", "")
+# print(module_name)  # Output: tests.mytest
+
+print(all_files)
