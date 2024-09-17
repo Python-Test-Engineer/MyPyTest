@@ -67,7 +67,7 @@ for mod in all_modules:
                 }
                 display_test_result(result, "FAILED")
                 r.add_result(result)
-                print(e)
+                console.print(f"[red italic]ERROR: {e}[/]")
             finally:
                 pass
 # FN
@@ -107,7 +107,7 @@ for mod in all_modules:
             }
             display_test_result(result, "FAILED")
             r.add_result(result)
-            console.print(f"[red]ERROR: {e}[/red]")
+            console.print(f"[red italic]ERROR: {e}[/]")
         finally:
             pass
 
