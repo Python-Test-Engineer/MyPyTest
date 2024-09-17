@@ -4,6 +4,7 @@ from rich.console import Console
 from _mypytest.utils import display_test_result
 from utils.read_mypytest import get_mytest_dir, get_mytest_files, get_version
 from _mypytest.header import do_header
+from _mypytest.summary import do_summary_report
 from _mypytest.results import Results
 
 r = Results.get_instance()
@@ -101,6 +102,5 @@ for test_name, func in test_dict.items():
         pass
 
 # SUMMARY REPORT
-console.print("[green]================ Test Summary ===================[/]")
-r.get_result_totals()
-console.print("[green]=================================================[/]")
+
+do_summary_report()
