@@ -9,7 +9,7 @@ def my_test_013_add():
     ), f"Actual result: {actual_result} - Expected result: {expected_result}"
 
 
-class MyTestSample:
+class MyTestOne:
     # we can define setup and teardown methods as well
 
     def setup_method(self, method):
@@ -48,7 +48,7 @@ class MyTestSample:
         ), f"Actual result: {actual_result} - Expected result: {expected_result}"
 
 
-class MyTestSample2:
+class MyTestTwo:
     # we can define setup and teardown methods as well
 
     def my_test_005_cls_add():
@@ -73,7 +73,7 @@ class MyTestSample2:
         ), f"Actual result: {actual_result} - Expected result: {expected_result}"
 
 
-class MyTestSample3:
+class MyTestThree:
     # we can define setup and teardown methods as well
 
     def my_test_008_cls_add():
