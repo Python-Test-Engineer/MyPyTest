@@ -14,5 +14,7 @@ console = Console()
 # HEADER
 do_header()
 
-test_discovery = get_test_config()
-console.print(test_discovery)
+(test_version, test_dir, test_files, test_classes, test_funcs) = get_test_config()
+console.print(
+    f"{test_version} - {test_dir} - {test_files}   - {test_classes} - {test_funcs}"
+)
