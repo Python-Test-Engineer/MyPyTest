@@ -11,8 +11,8 @@ class MyTestSample:
 
         print(f"\n[dark_orange italic]Running teardown for {method.__name__}[/]")
 
-    def my_test_001_cls_add_FAIL():
-        actual_result = add(15, 20) + 20
+    def my_test_001_cls_add_PASS():
+        actual_result = add(15, 20)
         expected_result = 35
         assert (
             actual_result == expected_result

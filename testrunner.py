@@ -27,7 +27,8 @@ classes = [cls for cls in module.__dict__.values() if inspect.isclass(cls)]
 
 # Iterate over each class and invoke all its methods
 for cls in classes:
-    console.print(f"[dark_orange]Class: {cls.__name__}[/]")
+    print("")
+    console.print(f"[dark_orange bold]Class: {cls.__name__}[/]")
     methods = inspect.getmembers(cls, inspect.isfunction)
     methods = [method for method in methods if method[0].startswith("my_test")]
     for method_name, method in methods:
