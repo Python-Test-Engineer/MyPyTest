@@ -16,7 +16,7 @@ do_header()
 # RUN TESTS
 # Dynamically import the module
 module_name = (
-    "tests.mytest_class_01"  # replace with the name of the module you want to import
+    "tests.mytest_mix"  # replace with the name of the module you want to import
 )
 module = importlib.import_module(module_name)
 
@@ -60,7 +60,7 @@ for cls in classes:
             pass
 # FN
 console.print("\n[dark_orange]================ RUN FN TESTS ===================[/]")
-mod = "tests.mytest_fns"
+mod = "tests.mytest_mix"
 module_name = importlib.import_module(mod)
 
 all_funcs = dir(module_name)
