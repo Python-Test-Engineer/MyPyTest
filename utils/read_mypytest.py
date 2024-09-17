@@ -26,6 +26,14 @@ def get_version():
     return config["framework"]["version"]
 
 
+def get_mytest_classes():
+    return config["tests"]["classes"]
+
+
+def get_mytest_funcs():
+    return config["tests"]["funcs"]
+
+
 if __name__ == "__main__":
 
     print(f"TEST_DIR: {get_mytest_dir()}")
