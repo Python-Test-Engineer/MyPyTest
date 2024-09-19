@@ -3,7 +3,7 @@ import glob
 import inspect
 from rich.console import Console
 from _mypytest.utils import display_test_result
-from utils.read_mypytest import get_mytest_dir, get_mytest_files, get_version
+from _mypytest.read_mypytest import get_mytest_dir, get_mytest_files, get_version
 from _mypytest.header import do_header
 from _mypytest.summary import do_summary_report
 from _mypytest.discovery import get_test_config

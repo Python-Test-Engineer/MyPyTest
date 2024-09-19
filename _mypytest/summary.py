@@ -1,4 +1,4 @@
-from utils.read_mypytest import get_mytest_dir, get_mytest_files, get_version
+from _mypytest.read_mypytest import get_mytest_dir, get_mytest_files, get_version
 from rich.console import Console
 from _mypytest.results import Results
 
