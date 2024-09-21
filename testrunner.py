@@ -1,3 +1,5 @@
+"""Testrunner for MyPyTest"""
+
 import importlib
 import glob
 import inspect
